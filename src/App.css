@@ -36,3 +36,15 @@
     transform: rotate(360deg);
   }
 }
+
+@font-face {
+  font-family: "Alex";
+  src: url("../public/fonts/Kufam-Bold.ttf");
+  font-weight: 200
+}
+
+@font-face {
+  font-family: "Alex";
+  src: url("../public/fonts/BalooBhaijaan2-ExtraBold.ttf");
+  font-weight: Bold
+}
