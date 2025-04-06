@@ -8,12 +8,16 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import axios from "axios"
 import moment from "moment";
-
+import { useTranslation } from 'react-i18next';
 
 function App() {
   const [Temp,setTemp] = useState({min:"",max:"",now:"",des:"",icon:""})
+  const { t, i18n } = useTranslation();
+  useEffect(() => {
+    i18n.changeLanguage('ar') },[]);
   
   useEffect(()=>{
+    
     axios.get('https://api.openweathermap.org/data/2.5/weather?lat=36.8065&lon=10.1815&appid=0e1df1c4939b7318ff607597be3ac9a4')
     .then(function (response) {
       console.log(response);
@@ -66,7 +70,7 @@ function App() {
         </div>
         </div>
         <Typography variant="h6" gutterBottom style={{fontFamily:"Alex",fontWeight:"bold"}}>
-        <p>الحالة : {Temp.des}</p>
+        <p>الحالة : {t(Temp.des)}</p>
         </Typography>
         <div >
         <Typography variant="h6" gutterBottom style={{display:"flex",justifyContent:"space-between",fontFamily:"Alex",fontWeight:"bold" }}>
@@ -86,6 +90,7 @@ function App() {
       </Card>
       </Container>
     </div>
+    
   );
 }
 
